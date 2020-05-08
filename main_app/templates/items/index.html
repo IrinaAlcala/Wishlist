@@ -1,0 +1,31 @@
+{% block content %}
+
+<h1>Wish List Items</h1>
+
+{% for item in items %}
+
+  
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ item.description }}</span>
+            
+        </div>
+    </div>
+  </a>
+{% endfor %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            
+                
+                <span class="card-title">{{ item.description }}</span>
+                <a href="{% url 'items_create' %}">Add a Wish</a>
+            
+            
+	
+{% endblock content %}
+
+
+  
+</body>
+</html>
