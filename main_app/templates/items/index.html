@@ -1,31 +1,49 @@
+
+{% extends 'base.html' %} 
 {% block content %}
 
-<h1>Wish List Items</h1>
+ <h1>Wish List Items</h1>
+ <a href="{% url 'items_create' %}" class="btn btn green" role="button">ADD A WISH</a>
+</td>
+<table id="table_id" class="table-hover">
+    <thead>
+        <tr>
+            <th scope="col">DESCRIPTION</th> 
+               
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items %}
+        <tr>
+            <td>{{item.description}}</td>
+            <td>
 
-{% for item in items %}
+            </td>
+            <td>
+            <a href="{% url 'delete' item.id %}" class="btn red darken-4" role="button">X</a>
+            </td>
+        </tr> 
+        {% endfor %}
+    </tbody>
+</table>
 
-  
-    <div class="card">
-        <div class="card-content">
-            <span class="card-title">{{ item.description }}</span>
-            
-        </div>
-    </div>
-  </a>
+{% endblock %}
+<!-- <table>
+    <td>Description</td>
+    <td>Delete?</td>
+  {% for item in items %}
+<table>
+     
 {% endfor %}
     <div class="content-section">
         <form method="POST">
-            {% csrf_token %}
-            
-                
-                <span class="card-title">{{ item.description }}</span>
-                <a href="{% url 'items_create' %}">Add a Wish</a>
-            
-            
-	
-{% endblock content %}
-
-
-  
+            {% csrf_token %} -->
+    
 </body>
 </html>
+
+
+
+
+
+
